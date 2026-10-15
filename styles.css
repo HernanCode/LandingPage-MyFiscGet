@@ -344,6 +344,23 @@ a { color: inherit; }
 
 .chart { width: 100%; height: auto; }
 
+/* Hero — entrada y flotación sutil */
+@keyframes heroTextIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes heroIn { from { opacity: 0; translate: 0 20px; } to { opacity: 1; translate: 0 0; } }
+@keyframes heroFloat { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+
+.js .hero__inner > * { opacity: 0; animation: heroTextIn .7s cubic-bezier(.2, .7, .2, 1) forwards; }
+.js .hero__inner > *:nth-child(1) { animation-delay: .08s; }
+.js .hero__inner > *:nth-child(2) { animation-delay: .2s; }
+.js .hero__inner > *:nth-child(3) { animation-delay: .32s; }
+
+.js .hcard { opacity: 0; animation: heroIn .7s cubic-bezier(.2, .7, .2, 1) forwards, heroFloat 8s ease-in-out infinite; }
+.js .hcard--mov   { animation-delay: .12s, 1.0s; }
+.js .hcard--303   { animation-delay: .24s, 1.35s; }
+.js .hcard--serie { animation-delay: .36s, 1.7s; }
+.js .hcard--130   { animation-delay: .48s, 2.05s; }
+.js .hcard--input { animation-delay: .6s, 2.4s; }
+
 /* ---------------------------------------------------------------------
    Carrusel infinito (marquee)
    --------------------------------------------------------------------- */
@@ -1292,6 +1309,8 @@ a { color: inherit; }
   .js .cta-art__letter { transform: none; transition: none; }
   .cta__link span { transition: none; }
   .cmodal[open] { animation: none; }
+  .js .hero__inner > * { animation: none; opacity: 1; transform: none; }
+  .js .hcard { animation: none; opacity: 1; }
 }
 
 /* --- Cómo empezar: apilado en móvil y con movimiento reducido --- */
@@ -1425,3 +1444,34 @@ a { color: inherit; }
 @media (max-width: 480px) {
   .footer__grid { grid-template-columns: 1fr; }
 }
+
+/* ---------------------------------------------------------------------
+   Escalonado de aparición (bloques con .reveal)
+   --------------------------------------------------------------------- */
+.features-head .reveal:nth-child(1) { transition-delay: .04s; }
+.features-head .reveal:nth-child(2) { transition-delay: .12s; }
+.features-head .reveal:nth-child(3) { transition-delay: .2s; }
+.features-head .reveal:nth-child(4) { transition-delay: .28s; }
+.features-head .reveal:nth-child(5) { transition-delay: .36s; }
+
+.notice__head .reveal:nth-child(1) { transition-delay: .05s; }
+.notice__head .reveal:nth-child(2) { transition-delay: .15s; }
+.notice__linkwrap.reveal { transition-delay: .1s; }
+
+.cta__copy .reveal:nth-child(1) { transition-delay: .04s; }
+.cta__copy .reveal:nth-child(2) { transition-delay: .12s; }
+.cta__copy .reveal:nth-child(3) { transition-delay: .2s; }
+.cta__copy .reveal:nth-child(4) { transition-delay: .28s; }
+
+.setup-left .reveal:nth-child(1) { transition-delay: .04s; }
+.setup-left .reveal:nth-child(2) { transition-delay: .12s; }
+.setup-left .reveal:nth-child(3) { transition-delay: .2s; }
+.setup-left .reveal:nth-child(4) { transition-delay: .28s; }
+.setup-left .reveal:nth-child(5) { transition-delay: .36s; }
+
+.footer__grid .footer__col.reveal:nth-child(1) { transition-delay: .04s; }
+.footer__grid .footer__col.reveal:nth-child(2) { transition-delay: .1s; }
+.footer__grid .footer__col.reveal:nth-child(3) { transition-delay: .16s; }
+.footer__grid .footer__col.reveal:nth-child(4) { transition-delay: .22s; }
+.footer__grid .footer__col.reveal:nth-child(5) { transition-delay: .28s; }
+.footer__bottom.reveal { transition-delay: .34s; }
